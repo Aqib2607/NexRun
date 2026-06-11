@@ -12,6 +12,19 @@ jobs:
     defaults:
       run:
         working-directory: backend
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: nexrun_testing
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
     
     steps:
     - uses: actions/checkout@v4
@@ -45,10 +58,13 @@ jobs:
         
     - name: Run Tests (Pest)
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        DB_CONNECTION: mysql
+        DB_HOST: 127.0.0.1
+        DB_PORT: 3306
+        DB_DATABASE: nexrun_testing
+        DB_USERNAME: root
+        DB_PASSWORD: root
       run: |
-        touch database/database.sqlite
         php artisan migrate --force
         vendor/bin/pest
 
