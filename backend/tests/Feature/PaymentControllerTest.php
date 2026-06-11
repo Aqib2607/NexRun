@@ -22,7 +22,7 @@ beforeEach(function () {
 test('a user can initiate payment for their order', function () {
     Sanctum::actingAs($this->user);
 
-    $response = $this->postJson('/api/payments/initiate', [
+    $response = $this->postJson('/api/v1/payments/initiate', [
         'order_id' => $this->order->id,
         'payment_method_id' => $this->method->id,
     ]);
@@ -35,7 +35,7 @@ test('a user cannot initiate payment for someone elses order', function () {
     $otherUser = User::factory()->create();
     Sanctum::actingAs($otherUser);
 
-    $response = $this->postJson('/api/payments/initiate', [
+    $response = $this->postJson('/api/v1/payments/initiate', [
         'order_id' => $this->order->id,
         'payment_method_id' => $this->method->id,
     ]);
@@ -47,7 +47,7 @@ test('it prevents initiating payment for an already paid order', function () {
     Sanctum::actingAs($this->user);
     $this->order->update(['payment_status' => 'completed']);
 
-    $response = $this->postJson('/api/payments/initiate', [
+    $response = $this->postJson('/api/v1/payments/initiate', [
         'order_id' => $this->order->id,
         'payment_method_id' => $this->method->id,
     ]);
