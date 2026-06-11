@@ -1,0 +1,22 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Order;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class OrderFactory extends Factory
+{
+    protected $model = Order::class;
+
+    public function definition(): array
+    {
+        return [
+            'customer_id'    => User::factory(),
+            'total_amount'   => fake()->randomFloat(2, 50, 5000),
+            'order_status'   => 'pending',
+            'payment_status' => 'pending',
+        ];
+    }
+}

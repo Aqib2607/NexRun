@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\Warehouse;
+
+class WarehouseRepository extends BaseRepository implements WarehouseRepositoryInterface
+{
+    public function __construct(Warehouse $model)
+    {
+        parent::__construct($model);
+    }
+}
