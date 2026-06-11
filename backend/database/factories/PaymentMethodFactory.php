@@ -12,8 +12,9 @@ class PaymentMethodFactory extends Factory
     public function definition(): array
     {
         return [
+            'method_name'  => fake()->word(),
             'display_name' => fake()->word(),
-            'slug'         => fake()->slug(),
+            'slug'         => fake()->unique()->slug(),
             'status'       => 'active',
         ];
     }
