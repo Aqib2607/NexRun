@@ -6,6 +6,11 @@ use App\Models\User;
 use App\Services\PaymentService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+/**
+ * @property \App\Services\PaymentService $paymentService
+ * @property \App\Models\User $user
+ * @property \App\Models\Order $order
+ */
 uses(RefreshDatabase::class);
 
 beforeEach(function () {

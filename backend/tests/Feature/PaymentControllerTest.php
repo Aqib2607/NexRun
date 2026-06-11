@@ -7,6 +7,11 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Sanctum\Sanctum;
 
+/**
+ * @property \App\Models\User $user
+ * @property \App\Models\Order $order
+ * @property \App\Models\PaymentMethod $method
+ */
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
