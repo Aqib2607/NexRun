@@ -32,7 +32,7 @@ export const Route = createFileRoute("/product/$slug")({
 });
 
 function PDP() {
-  const { product } = Route.useLoaderData();
+  const { product } = Route.useLoaderData() as { product: import("@/types").Product };
   const [color, setColor] = useState(product.colors[0]);
   const [size, setSize] = useState<string | null>(null);
   const [activeImg, setActiveImg] = useState(0);
