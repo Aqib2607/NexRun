@@ -42,7 +42,7 @@ function CategoryPage() {
       <div className="container-nx py-10">
         <p className="text-sm text-muted-foreground mb-8">{products.length} products</p>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-10">
-          {products.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
+          {products.map((p: import("@/types").Product, i: number) => <ProductCard key={p.id} product={p} index={i} />)}
         </div>
       </div>
     </div>
