@@ -17,7 +17,7 @@ uses(RefreshDatabase::class);
 function createVariant() {
     $category = Category::factory()->create();
     $brand = Brand::factory()->create();
-    $product = Product::factory()->for($category)->for($brand)->create(['status' => 'active', 'base_price' => 100.00]);
+    $product = Product::factory()->for($category)->for($brand)->create(['status' => 'active', 'base_price' => 100.00, 'sale_price' => null]);
 
     $size = Size::firstOrCreate(['size_code' => 'M']);
     $color = Color::firstOrCreate(['hex_code' => '#FF0000'], ['color_name' => 'Red']);
