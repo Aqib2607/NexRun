@@ -25,7 +25,7 @@ export const Route = createFileRoute("/category/$slug")({
 });
 
 function CategoryPage() {
-  const { category, products } = Route.useLoaderData();
+  const { category, products } = Route.useLoaderData() as { category: import("@/types").Category; products: import("@/types").Product[] };
   return (
     <div>
       <section className="relative h-[50vh] min-h-[360px] bg-ink text-white overflow-hidden">
