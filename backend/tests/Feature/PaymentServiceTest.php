@@ -39,7 +39,7 @@ test('it can initiate a COD payment', function () {
 });
 
 test('it can confirm a payment', function () {
-    $method = PaymentMethod::factory()->create(['slug' => 'cod']);
+    $method = PaymentMethod::factory()->create(['slug' => 'sslcommerz']);
     $paymentInfo = $this->paymentService->initiate($this->order, $method->id);
     
     $payment = \App\Models\Payment::find($paymentInfo['payment_id']);
