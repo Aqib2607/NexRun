@@ -17,9 +17,7 @@
     "paths": {
         "/api/ping": {
             "get": {
-                "tags": [
-                    "System"
-                ],
+                "tags": ["System"],
                 "summary": "Health Check",
                 "operationId": "ad49a97d84c9cdad655cb6cde0e68556",
                 "responses": {
